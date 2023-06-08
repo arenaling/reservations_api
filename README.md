@@ -42,6 +42,19 @@ The API endpoint can handle changes to the reservation, such as updating the sta
 
    The API endpoint will be accessible at `http://localhost:3000`.
 
+## URL
+
+For reservation API :
+```
+http://localhost:3000/reservations
+```
+
+For reservation API Doc by Swagger found in here :
+```
+http://localhost:3000/api-docs/index.html
+```
+
+
 ## Testing
 
 The project includes unit tests using the RSpec testing framework. To run the tests, execute the following command:
