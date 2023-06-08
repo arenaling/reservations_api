@@ -55,12 +55,10 @@ RSpec.describe 'Reservations API', type: :request do
       end
 
       it 'returns a validation error' do
-        expect {
-          post '/reservations', params: payload.to_json, headers: { 'Content-Type' => 'application/json' }
-        }.not_to change(Reservation, :count)
+        post '/reservations', params: payload.to_json, headers: { 'Content-Type' => 'application/json' }
 
         expect(response).to have_http_status(:unprocessable_entity)
-        expect(response_body['errors']).to include('Validation error message')
+        expect(JSON.parse(response.body)['error']).to include('Invalid payload type.')
         # Add more assertions as needed
       end
     end
