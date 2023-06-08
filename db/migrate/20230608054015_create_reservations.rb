@@ -5,6 +5,7 @@ class CreateReservations < ActiveRecord::Migration[7.0]
       t.date :start_date
       t.date :end_date
       t.integer :nights
+      t.integer :total_guests
       t.integer :adults
       t.integer :children
       t.integer :infants

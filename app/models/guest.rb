@@ -1,3 +1,3 @@
 class Guest < ApplicationRecord
-  has_many :reservations
+  has_many :reservations, through: :reservation_guests
 end

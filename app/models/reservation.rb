@@ -1,3 +1,4 @@
 class Reservation < ApplicationRecord
-  belongs_to :guest
+  has_many :reservation_guests
+  has_many :guests, through: :reservation_guests
 end
