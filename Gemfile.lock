@@ -102,6 +102,8 @@ GEM
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
+    json-schema (3.0.0)
+      addressable (>= 2.8)
     loofah (2.21.3)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
@@ -128,7 +130,6 @@ GEM
     nio4r (2.5.9)
     nokogiri (1.15.2-x86_64-linux)
       racc (~> 1.4)
-    pg (1.5.3)
     public_suffix (5.0.1)
     puma (5.6.5)
       nio4r (~> 2.0)
@@ -185,6 +186,20 @@ GEM
       rspec-mocks (~> 3.12)
       rspec-support (~> 3.12)
     rspec-support (3.12.0)
+    rswag (2.9.0)
+      rswag-api (= 2.9.0)
+      rswag-specs (= 2.9.0)
+      rswag-ui (= 2.9.0)
+    rswag-api (2.9.0)
+      railties (>= 3.1, < 7.1)
+    rswag-specs (2.9.0)
+      activesupport (>= 3.1, < 7.1)
+      json-schema (>= 2.2, < 4.0)
+      railties (>= 3.1, < 7.1)
+      rspec-core (>= 2.14)
+    rswag-ui (2.9.0)
+      actionpack (>= 3.1, < 7.1)
+      railties (>= 3.1, < 7.1)
     rubyzip (2.3.2)
     selenium-webdriver (4.10.0)
       rexml (~> 3.2, >= 3.2.5)
@@ -234,10 +249,10 @@ DEPENDENCIES
   debug
   importmap-rails
   jbuilder
-  pg
   puma (~> 5.0)
   rails (~> 7.0.5)
   rspec-rails
+  rswag
   selenium-webdriver
   sprockets-rails
   sqlite3 (~> 1.4)

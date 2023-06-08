@@ -1,0 +1,58 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/reservations":
+    post:
+      summary: Create or update reservation
+      tags:
+      - Reservation
+      parameters: []
+      responses:
+        '201':
+          description: Reservation created successfully.
+        '422':
+          description: Invalid payload type.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                reservation_code:
+                  type: string
+                start_date:
+                  type: string
+                end_date:
+                  type: string
+                nights:
+                  type: integer
+                guests:
+                  type: integer
+                adults:
+                  type: integer
+                children:
+                  type: integer
+                infants:
+                  type: integer
+                status:
+                  type: string
+                guest:
+                  first_name:
+                    type: string
+                  last_name:
+                    type: string
+                  phone:
+                    type: string
+                  email:
+                    type: string
+                currency:
+                  type: string
+                payout_price:
+                  type: integer
+                security_price:
+                  type: integer
+                total_price:
+                  type: integer
