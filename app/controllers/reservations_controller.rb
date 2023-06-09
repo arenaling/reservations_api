@@ -14,6 +14,14 @@ class ReservationsController < ApplicationController
       reservation_data = parsed_payload[0]
       guests_data = parsed_payload[1]
 
+      if(
+        reservation_data[:reservation_code].nil? ||
+        (guests_data.length == 0 || guests_data[0][:email].nil?)
+      )
+        render json: { error: "Reservation code and guest's email needed." }, status: :unprocessable_entity
+        return
+      end
+
       reservation = Reservation.find_or_create_by(reservation_code: reservation_data[:reservation_code])
       reservation.update(reservation_data)
 
