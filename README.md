@@ -6,7 +6,14 @@ This project implements an API endpoint using Ruby on Rails to handle reservatio
 
 The API endpoint allows clients to send reservation data in any different payload formats, by creating new class in directory /lib/payload_types/ that inherit PayloadType class and implement logic in methods. It parses the payload and saves the data to a Reservation model that has many to many to a Guest model. Mandatory attributes that must be exist is reservation code and guest's email. These 2 attributes make them as unique key in Reservation and Guest table.
 
-The API endpoint can handle changes to the reservation, such as updating the status, check-in/out dates, number of guests, and more.
+The API endpoint can handle changes to the reservation, such as updating the status, check-in/out dates, number of guests, and more. 
+
+Step to add more payload type:
+1. create new file in /lib/payload_types/ and inherit PayloadType from /lib/instances/payload_type.rb
+2. implement identify_payload method and use it to validate payload schema how many attributes is founded in the payload. The goal of this method is to return biggest value compared to other payload type so it will tell that this payload type can be chosen to parse the payload to desired object
+3. also implement parse_payload method, which is translate from payload to 2 objects that is Reservation and Guest (as array). 
+
+After 3 step above, it will automatically included from finding most acceptible payload parsing, of course after redeploy the project.
 
 ## Installation
 
@@ -41,6 +48,19 @@ The API endpoint can handle changes to the reservation, such as updating the sta
    ```
 
    The API endpoint will be accessible at `http://localhost:3000`.
+
+## URL
+
+For reservation API :
+```
+http://localhost:3000/reservations
+```
+
+For reservation API Doc by Swagger found in here :
+```
+http://localhost:3000/api-docs/index.html
+```
+
 
 ## Testing
 
